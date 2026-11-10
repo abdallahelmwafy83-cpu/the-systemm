@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#070b16">
+<meta name="description" content="THE SYSTEM — Strength Awakening">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<title>THE SYSTEM — Strength Awakening</title>
+<style>
+:root{--bg:#070b16;--panel:#101a2c;--panel2:#0b1424;--line:#1e3657;--blue:#36b8ff;--cyan:#7cecff;--gold:#ffc857;--text:#edf7ff;--muted:#91a9c2;--green:#42e6a4;--red:#ff607d}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -15%,#153b62 0,#0a1425 40%,var(--bg) 75%);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;min-height:100vh}
+button,input{font:inherit}button{cursor:pointer}.wrap{max-width:760px;margin:auto;padding:20px 15px 45px}.screen{display:none}.screen.active{display:block}.brand{text-align:center;margin:12px 0 25px}.brand .sig{font-size:12px;letter-spacing:5px;color:var(--cyan)}.brand h1{font-size:clamp(30px,8vw,48px);margin:5px 0;color:#fff;text-shadow:0 0 22px #239eea}.brand p{color:var(--muted);margin:0}.card{background:linear-gradient(145deg,#12233aee,#0b1424f2);border:1px solid var(--line);border-radius:18px;padding:18px;margin:13px 0;box-shadow:0 12px 35px #0005}.hero{text-align:center;padding:28px 18px}.eyebrow{color:var(--cyan);font-size:12px;letter-spacing:2px}.title{font-size:25px;margin:8px 0}.muted{color:var(--muted);font-size:14px;line-height:1.7}.field{margin:14px 0}.field label{display:block;color:#b8d0e8;font-size:14px;margin-bottom:7px}.field input{width:100%;background:#07101d;border:1px solid #294765;border-radius:11px;padding:13px;color:white;outline:none}.field input:focus{border-color:var(--blue);box-shadow:0 0 0 3px #36b8ff20}.btn{border:0;border-radius:12px;padding:13px 17px;font-weight:750;color:#04101c;background:linear-gradient(90deg,#35baff,#82edff);width:100%;margin-top:10px}.btn.secondary{background:#172a42;color:#cceaff;border:1px solid #345575}.btn.danger{background:#381c2a;color:#ffb3c0;border:1px solid #713247}.row{display:flex;gap:10px}.row>*{flex:1}.topline{display:flex;justify-content:space-between;align-items:center;gap:10px}.level{font-size:38px;font-weight:900;color:var(--cyan);text-shadow:0 0 18px #36b8ff70}.pill{display:inline-block;border:1px solid #2d5678;border-radius:99px;padding:5px 10px;color:var(--cyan);font-size:12px}.bar{height:9px;background:#07101d;border-radius:20px;overflow:hidden;margin:10px 0}.bar span{display:block;height:100%;background:linear-gradient(90deg,#168bdf,#7cecff);width:0;transition:width .25s}.statgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.stat{background:#091525;border:1px solid #203a57;border-radius:12px;padding:12px;text-align:center}.stat strong{display:block;font-size:20px;color:#fff}.stat small{color:var(--muted)}.exercise h3{margin:0 0 4px;font-size:18px}.exercise .target{color:var(--cyan);font-size:13px}.exercise .stars{color:var(--gold);letter-spacing:3px;direction:ltr;text-align:right;white-space:nowrap;overflow:hidden}.exercise .grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}.exercise input{width:100%;background:#07101d;border:1px solid #294765;border-radius:9px;padding:10px;color:white}.exercise label{font-size:12px;color:var(--muted);display:block;margin:8px 0 5px}.quest{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid #1a304a}.quest:last-child{border:0}.quest input{width:20px;height:20px;accent-color:#37c5ff}.quest.done span{text-decoration:line-through;color:#7891a8}.notice{border:1px solid #6b5524;background:#2b2414;color:#ffe3a1;padding:12px;border-radius:12px;font-size:13px;line-height:1.6}.smallbtn{background:#14263c;color:#c8e8ff;border:1px solid #2a4968;border-radius:9px;padding:8px 10px;font-size:12px}.sectionhead{display:flex;align-items:center;justify-content:space-between;margin:24px 2px 8px}.sectionhead h2{font-size:18px;margin:0}.footer{text-align:center;color:#59728c;font-size:11px;margin-top:25px}.hidden{display:none!important}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <section id="entry" class="screen active">
+    <div class="brand"><div class="sig">SYSTEM INTERFACE</div><h1>THE SYSTEM</h1><p>STRENGTH AWAKENING</p></div>
+    <div class="card hero">
+      <div class="eyebrow">PLAYER IDENTIFICATION</div>
+      <div class="title">مرحبًا بعودتك أيها اللاعب</div>
+      <p class="muted" id="entryMsg">سجّل دخولك لبدء رحلتك.</p>
+      <button class="btn" id="enterBtn">دخول النظام</button>
+    </div>
+    <div class="footer">YOUR JOURNEY. YOUR LEVEL. YOUR SYSTEM.</div>
+  </section>
+
+  <section id="setup" class="screen">
+    <div class="brand"><div class="sig">INITIAL CONFIGURATION</div><h1>PLAYER SETUP</h1><p>بيانات اللاعب — أول مرة فقط</p></div>
+    <div class="card">
+      <div class="field"><label for="height">الطول (سم)</label><input id="height" type="number" min="100" max="230" placeholder="مثال: 175"></div>
+      <div class="field"><label for="weight">الوزن الحالي (كجم)</label><input id="weight" type="number" min="25" max="300" step=".1" placeholder="مثال: 70"></div>
+      <div id="bmiPreview" class="notice">أدخل الطول والوزن لحساب مؤشر كتلة الجسم.</div>
+      <button class="btn" id="saveProfile">حفظ وبدء النظام</button>
+    </div>
+  </section>
+
+  <section id="dashboard" class="screen">
+    <div class="topline">
+      <div><div class="eyebrow">PLAYER STATUS</div><div style="font-size:22px;font-weight:850">THE SYSTEM</div></div>
+      <button class="smallbtn" id="editProfile">تعديل البيانات</button>
+    </div>
+    <div class="card">
+      <div class="topline"><div><div class="muted">CURRENT RANK</div><div class="level" id="levelText">LEVEL 0</div></div><span class="pill" id="rankTag">AWAKENING</span></div>
+      <div class="muted" id="playerSummary"></div>
+      <div class="sectionhead"><h2>الخبرة والتقدم</h2><span class="pill" id="xpLabel">0 XP</span></div>
+      <div class="bar"><span id="xpBar"></span></div>
+      <div class="muted" id="xpText">أكمل متطلبات التمارين للتقدم للمستوى التالي.</div>
+    </div>
+    <div class="statgrid">
+      <div class="stat"><strong id="bmiValue">—</strong><small>BMI</small></div>
+      <div class="stat"><strong id="heightValue">—</strong><small>الطول سم</small></div>
+      <div class="stat"><strong id="weightValue">—</strong><small>الوزن كجم</small></div>
+    </div>
+    <div id="eligibility" class="notice" style="margin-top:12px"></div>
+
+    <div class="sectionhead"><h2>اختبارات القوة</h2><span class="pill">3 EXERCISES</span></div>
+    <div id="exercises"></div>
+    <button class="btn" id="saveLifts">حفظ الأداء وتحديث التقدم</button>
+
+    <div class="sectionhead"><h2>المهام اليومية</h2><span class="pill" id="questDate"></span></div>
+    <div class="card" id="quests"></div>
+
+    <div class="sectionhead"><h2>إدارة بيانات اللاعب</h2></div>
+    <div class="card">
+      <div class="row"><button class="btn secondary" id="exportBtn">تصدير نسخة احتياطية</button><button class="btn secondary" id="importBtn">استيراد نسخة</button></div>
+      <input class="hidden" type="file" id="importFile" accept="application/json">
+      <button class="btn danger" id="resetBtn">مسح بيانات اللاعب</button>
+      <p class="muted">يتم الحفظ تلقائيًا على نفس المتصفح والجهاز. استخدم النسخة الاحتياطية عند تغيير الجهاز أو المتصفح.</p>
+    </div>
+    <div class="footer">SYSTEM ONLINE • PROGRESS SAVED LOCALLY</div>
+  </section>
+</div>
+<script>
+const KEY='systemStrengthSave';
+const EX=[
+ {id:'bench',name:'Bench Press',ar:'ضغط البنش — الصدر',ratio:.5},
+ {id:'deadlift',name:'Deadlift',ar:'الرفعة الميتة',ratio:1},
+ {id:'squat',name:'Barbell Squat',ar:'سكوات بالبار',ratio:2}
+];
+let data=null;
+const $=id=>document.getElementById(id);
+function load(){try{data=JSON.parse(localStorage.getItem(KEY)||'null')}catch(e){data=null}}
+function persist(){localStorage.setItem(KEY,JSON.stringify(data))}
+function show(id){document.querySelectorAll('.screen').forEach(x=>x.classList.remove('active'));$(id).classList.add('active')}
+function bmi(h,w){return w/((h/100)**2)}
+function eligible(){let b=bmi(data.height,data.weight);return b>=18.5&&b<=24.9}
+function nextLevel(){return data.level+1}
+function target(ex){return data.weight*ex.ratio*nextLevel()}
+function starsCount(){return Math.min(15,Math.max(3,data.level*3+3))}
+function starsFor(reps){let n=starsCount(),filled=Math.min(n,Math.floor(Math.min(30,reps)/30*n));return '★'.repeat(filled)+'☆'.repeat(n-filled)}
+function render(){
+ $('levelText').textContent='LEVEL '+data.level;
+ $('rankTag').textContent=data.level===0?'AWAKENING':data.level<5?'HUNTER':'ELITE HUNTER';
+ $('playerSummary').textContent='بيانات اللاعب محفوظة • أهداف المستوى التالي محسوبة بناءً على وزنك الحالي.';
+ $('bmiValue').textContent=bmi(data.height,data.weight).toFixed(1);
+ $('heightValue').textContent=data.height;$('weightValue').textContent=Number(data.weight).toFixed(1);
+ $('eligibility').textContent=data.level===0?(eligible()?'شرط الوزن: مستوفى مبدئيًا. يمكنك العمل على متطلبات المستوى الأول.':'شرط الوزن للمستوى الأول غير مستوفى حاليًا وفق نطاق BMI من 18.5 إلى 24.9.'):'تم تجاوز شرط الوزن الأولي. استمر في تحقيق أهداف القوة.';
+ const all=EX.every(e=>Number(data.lifts[e.id].load)>=target(e)&&Number(data.lifts[e.id].reps)>=30);
+ let progress=EX.reduce((s,e)=>s+Math.min(Number(data.lifts[e.id].load)/target(e),Number(data.lifts[e.id].reps)/30),0)/3;
+ let pct=Math.max(0,Math.min(100,progress*100));
+ $('xpBar').style.width=pct+'%';$('xpLabel').textContent=Math.round(pct)+'%';$('xpText').textContent=all?'اكتملت أهداف التمارين الثلاثة للمستوى التالي.':'أكمل الوزن المستهدف و30 عدة في كل تمرين لفتح المستوى التالي.';
+ $('exercises').innerHTML=EX.map(e=>{let l=data.lifts[e.id];let t=target(e);return `<div class="card exercise"><div class="topline"><div><h3>${e.name}</h3><div class="muted">${e.ar}</div></div><span class="pill">×${e.ratio}</span></div><div class="target">هدف المستوى ${nextLevel()}: ${t.toFixed(1)} كجم • 30 عدة في مجموعة واحدة</div><div class="stars">${starsFor(Number(l.reps)||0)}</div><div class="grid2"><div><label>وزن التدريب (كجم)</label><input type="number" min="0" step=".5" data-lift="${e.id}" data-key="load" value="${l.load??''}" placeholder="الوزن"></div><div><label>عدد العدات (مجموعة واحدة)</label><input type="number" min="0" max="500" step="1" data-lift="${e.id}" data-key="reps" value="${l.reps??''}" placeholder="العدات"></div></div></div>`}).join('');
+ $('questDate').textContent=data.dailyDate;
+ const qs=[['track','سجّل أداء التمارين اليوم'],['plan','التزم بخطة التدريب'],['warm','أكمل الإحماء'],['recover','اهتم بالتعافي والراحة']];
+ $('quests').innerHTML=qs.map(([id,label])=>`<label class="quest ${data.dailyDone[id]?'done':''}"><input type="checkbox" data-quest="${id}" ${data.dailyDone[id]?'checked':''}><span>${label}</span></label>`).join('');
+}
+function refreshEntry(){ $('entryMsg').textContent=data?.setupDone?'بياناتك محفوظة. اضغط دخول للعودة إلى لوحة اللاعب.':'ابدأ بإعداد بيانات اللاعب لأول مرة.'}
+function start(){if(!data?.setupDone){show('setup');fillSetup()}else{rollDaily();show('dashboard');render()}}
+function fillSetup(){ $('height').value=data?.height||'';$('weight').value=data?.weight||'';previewBMI()}
+function previewBMI(){let h=Number($('height').value),w=Number($('weight').value);$('bmiPreview').textContent=h>0&&w>0?'BMI المتوقع: '+bmi(h,w).toFixed(1)+' — النطاق المرجعي العام 18.5 إلى 24.9.':'أدخل الطول والوزن لحساب مؤشر كتلة الجسم.'}
+function rollDaily(){let today=new Date().toLocaleDateString('en-CA');if(data.dailyDate!==today){data.dailyDate=today;data.dailyDone={track:false,plan:false,warm:false,recover:false};persist()}}
+$('height').addEventListener('input',previewBMI);$('weight').addEventListener('input',previewBMI);
+$('enterBtn').onclick=start;
+$('saveProfile').onclick=()=>{let h=Number($('height').value),w=Number($('weight').value);if(h<100||h>230||w<25||w>300){alert('راجع الطول والوزن المدخلين.');return}
+ if(!data)data={level:0,lifts:{bench:{load:'',reps:''},deadlift:{load:'',reps:''},squat:{load:'',reps:''}},dailyDate:'',dailyDone:{}};
+ data.height=h;data.weight=w;data.level=data.level??0;data.setupDone=true;persist();rollDaily();show('dashboard');render()};
+$('editProfile').onclick=()=>{fillSetup();show('setup');$('saveProfile').textContent='حفظ التعديلات';$('saveProfile').onclick=()=>{let h=Number($('height').value),w=Number($('weight').value);if(h<100||h>230||w<25||w>300){alert('راجع الطول والوزن المدخلين.');return}data.height=h;data.weight=w;persist();$('saveProfile').textContent='حفظ وبدء النظام';$('saveProfile').onclick=saveInitial;show('dashboard');render()}};
+function saveInitial(){ }
+$('saveLifts').onclick=()=>{document.querySelectorAll('[data-lift]').forEach(i=>{data.lifts[i.dataset.lift][i.dataset.key]=Math.max(0,Number(i.value)||0)});let complete=EX.every(e=>Number(data.lifts[e.id].load)>=target(e)&&Number(data.lifts[e.id].reps)>=30);if(complete&&(data.level>0||eligible())){data.level++;alert('SYSTEM UPDATE: تمت الترقية إلى LEVEL '+data.level)}else if(complete&&!eligible()){alert('الأداء مكتمل، لكن شرط الوزن الأولي للمستوى الأول غير مستوفى.')}persist();render()};
+$('quests').addEventListener('change',e=>{if(e.target.dataset.quest){data.dailyDone[e.target.dataset.quest]=e.target.checked;persist();render()}});
+$('exportBtn').onclick=()=>{let blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='the-system-backup.json';a.click();URL.revokeObjectURL(a.href)};
+$('importBtn').onclick=()=>$('importFile').click();
+$('importFile').onchange=async e=>{let f=e.target.files[0];if(!f)return;try{let d=JSON.parse(await f.text());if(!d.height||!d.weight||!d.lifts)throw Error();data=d;persist();show('dashboard');render();alert('تم استرجاع بيانات اللاعب.')}catch(err){alert('ملف النسخة الاحتياطية غير صالح.')}e.target.value=''};
+$('resetBtn').onclick=()=>{if(confirm('هل أنت متأكد من مسح كل بيانات اللاعب؟')){localStorage.removeItem(KEY);data=null;refreshEntry();show('entry')}};
+load();refreshEntry();
+if('serviceWorker' in navigator && location.protocol!=='file:'){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}))}
+</script>
+</body></html>
